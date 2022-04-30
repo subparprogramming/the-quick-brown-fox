@@ -13,6 +13,7 @@ But some technologies we're looking to use are:
 - [react-spring](https://react-spring.io/)
 - [SuperTokens](https://supertokens.com/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
 - [Godot Engine](https://godotengine.org/)
 
 Fonts:
