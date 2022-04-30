@@ -1,7 +1,9 @@
 # The Quick Brown Fox
 
-<img src="./assets/fox-animated-6-half-height.gif" width="120" height="60" style="image-rendering: pixelated" />
-<img src="./assets/fox-animated-4-half-height.gif" width="120" height="60" style="image-rendering: pixelated" />
+<span>
+    <img src="./assets/fox-animated-6-half-height-lg.gif" width="120" height="60" />
+    <img src="./assets/fox-animated-4-half-height-lg.gif" width="120" height="60" />
+</span>
 
 Yeah... not really sure what this project is yet.
 
