@@ -30,3 +30,7 @@ Colors:
 - ![#9A8C98](https://via.placeholder.com/16/9A8C98/000000?text=+) Heliotrope Gray
 - ![#F2E9E4](https://via.placeholder.com/16/F2E9E4/000000?text=+) Isabelline
 - ![#D67941](https://via.placeholder.com/16/D67941/000000?text=+) Raw Sienna
+
+Miscellaneous Links:
+
+- [https://cssgradient.io/blog/css-gradient-text/](https://cssgradient.io/blog/css-gradient-text/)
