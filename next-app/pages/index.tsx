@@ -35,8 +35,8 @@ const Home: NextPage = () => {
 
           {/* grid content */}
           <div className="mx-auto mt-8 flex w-full flex-col lg:w-3/4">
-            <div className="ml-auto mr-0 px-10 text-right">idk man... this part doesn't really do sh*t 😑</div>
-            <div className="ml-auto mr-0 px-10 text-right font-rampart-one text-xl font-bold tracking-widest">&lt;&lt;&lt; It's just a grid. &gt;&gt;&gt;</div>
+            <div className="ml-auto mr-0 px-10 text-right">idk man... this part doesn&apos;t really do sh*t 😑</div>
+            <div className="ml-auto mr-0 px-10 text-right font-rampart-one text-xl font-bold tracking-widest">&lt;&lt;&lt; It&apos;s just a grid. &gt;&gt;&gt;</div>
             <div className="grid grid-flow-col grid-cols-5 grid-rows-4 px-8 pt-1 pb-8 font-sans font-bold text-black">
               <div className="row-span-3 row-start-2 m-1 flex items-center justify-center rounded-lg bg-isabelline p-4">01</div>
               <div className="m-1 flex items-center justify-center rounded-lg bg-isabelline p-4">02</div>
