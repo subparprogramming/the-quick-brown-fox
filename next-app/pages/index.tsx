@@ -27,7 +27,8 @@ const Home: NextPage = () => {
               <h1 className="pl-1 pt-4 text-3xl">おはよう!!!</h1>
             </div>
             <img
-              src="/fox-animated-1.gif"
+              src="/fox-animated-1.gif"\
+              alt="fox standing"
               className="col-span-3 -ml-6 h-1/2 w-full max-w-xs object-cover object-left-bottom sm:col-span-1 sm:ml-0 sm:max-w-md"
               style={{ imageRendering: "pixelated" }}
             />
@@ -50,7 +51,7 @@ const Home: NextPage = () => {
               </div>
               <div className="row-span-2 m-1 flex items-center justify-center rounded-lg border-4 p-4 text-isabelline">07</div>
               <div className="col-span-2 m-1 flex items-center justify-center rounded-lg bg-isabelline p-4">
-                <img src="/fox-animated-6-half-height.gif" className="w-2/3 object-cover object-bottom" style={{ imageRendering: "pixelated" }} />
+                <img src="/fox-animated-6-half-height.gif" alt="fox sleeping" className="w-2/3 object-cover object-bottom" style={{ imageRendering: "pixelated" }} />
               </div>
               <div className="m-1 flex items-center justify-center rounded-lg bg-isabelline p-4">09</div>
               <div className="m-1 flex items-center justify-center rounded-lg bg-isabelline p-4">10</div>
