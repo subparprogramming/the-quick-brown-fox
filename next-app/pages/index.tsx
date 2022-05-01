@@ -26,7 +26,11 @@ const Home: NextPage = () => {
               </div>
               <h1 className="pl-1 pt-4 text-3xl">おはよう!!!</h1>
             </div>
-            <img src="/fox-animated-1.gif" className="col-span-2 h-1/2 w-full object-cover object-left-bottom sm:col-span-1" style={{ imageRendering: "pixelated" }} />
+            <img
+              src="/fox-animated-1.gif"
+              className="col-span-3 -ml-6 h-1/2 w-full max-w-xs object-cover object-left-bottom sm:col-span-1 sm:ml-0 sm:max-w-md"
+              style={{ imageRendering: "pixelated" }}
+            />
           </div>
         </div>
       </div>
