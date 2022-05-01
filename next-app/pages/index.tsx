@@ -27,7 +27,7 @@ const Home: NextPage = () => {
               <h1 className="pl-1 pt-4 text-3xl">おはよう!!!</h1>
             </div>
             <img
-              src="/fox-animated-1.gif"\
+              src="/fox-animated-1.gif"
               alt="fox standing"
               className="col-span-3 -ml-6 h-1/2 w-full max-w-xs object-cover object-left-bottom sm:col-span-1 sm:ml-0 sm:max-w-md"
               style={{ imageRendering: "pixelated" }}
@@ -37,7 +37,6 @@ const Home: NextPage = () => {
           {/* grid content */}
           <div className="mx-auto mt-8 flex w-full flex-col lg:w-3/4">
             <div className="ml-auto mr-0 px-10 text-right">idk man... this part doesn&apos;t really do sh*t 😑</div>
-            <div className="ml-auto mr-0 px-10 text-right font-rampart-one text-xl font-bold tracking-widest">&lt;&lt;&lt; It&apos;s just a grid. &gt;&gt;&gt;</div>
             <div className="grid grid-flow-col grid-cols-5 grid-rows-4 px-8 pt-1 pb-8 font-sans font-bold text-black">
               <div className="row-span-3 row-start-2 m-1 flex items-center justify-center rounded-lg bg-isabelline p-4">01</div>
               <div className="m-1 flex items-center justify-center rounded-lg bg-isabelline p-4">02</div>
