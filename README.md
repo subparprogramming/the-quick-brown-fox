@@ -7,7 +7,9 @@
 
 Yeah... not really sure what this project is yet.
 
-But some technologies we're looking to use are:
+Site should be live here: [https://fox.subparprogramming.org/](https://fox.subparprogramming.org/)
+
+Some technologies we're looking to use are:
 
 - [Next.js](https://nextjs.org/)
 - [react-spring](https://react-spring.io/)
