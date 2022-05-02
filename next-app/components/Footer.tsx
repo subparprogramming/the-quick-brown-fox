@@ -14,7 +14,7 @@ function Footer() {
       </a>
 
       {/* github link */}
-      <a href="https://github.com/subparprogramming/bible-dev">
+      <a href="https://github.com/subparprogramming/the-quick-brown-fox">
         <svg className="h-7 duration-200 hover:text-white" viewBox="0 0 24 24">
           <path
             fill="currentColor"
@@ -24,7 +24,7 @@ function Footer() {
       </a>
 
       {/* email link */}
-      <a href="mailto:subparprogramming@googlegroups.com">
+      <a href="mailto:leo.battalora@gmail.com">
         <MailIcon className="h-7 duration-200 hover:text-white" />
       </a>
     </div>
