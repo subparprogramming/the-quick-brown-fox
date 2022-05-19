@@ -392,7 +392,7 @@ const Home: NextPage = () => {
 
       {/* page */}
       <div className="flex min-h-screen w-full flex-col items-center bg-space-cadet text-isabelline">
-        <Link href="/">
+        <Link href="/" passHref>
           <div className="absolute top-4 left-4 flex items-center space-x-1 rounded-lg border-2 border-independence bg-independence py-2 px-3 duration-200 hover:border-raw-sienna">
             <ArrowNarrowLeftIcon className="h-4" />
             <p className="-translate-y-[0.1em] text-xs tracking-[0.2em]">BACK</p>

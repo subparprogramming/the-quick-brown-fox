@@ -35,11 +35,11 @@ const Home: NextPage = () => {
 
           {/* learn hiragana/katakana buttons */}
           <div className="mx-auto grid w-full grid-flow-row grid-cols-1 justify-items-center gap-4 px-8 py-2 md:w-3/4 md:grid-cols-2">
-            <Link href="/hiragana">
+            <Link href="/hiragana" passHref>
               <div className="col-span-1 flex w-full justify-center rounded-lg border-2 border-independence bg-independence p-2 duration-200 hover:border-raw-sienna">Hiragana Chart</div>
             </Link>
 
-            <Link href="/katakana">
+            <Link href="/katakana" passHref>
               <div className="col-span-1 flex w-full justify-center rounded-lg border-2 border-independence bg-independence p-2 duration-200 hover:border-raw-sienna">Katakana Chart</div>
             </Link>
           </div>
@@ -53,7 +53,7 @@ const Home: NextPage = () => {
               <div className="m-1 flex items-center justify-center rounded-lg bg-isabelline p-4">03</div>
               <div className="m-1 flex items-center justify-center rounded-lg bg-raw-sienna p-4">04</div>
               <div className="col-span-2 m-1 flex items-center justify-center rounded-lg bg-isabelline p-4">05</div>
-              <Link href="https://www.deviantart.com/kitsune-09/art/Tempura-Udon-877669948">
+              <Link href="https://www.deviantart.com/kitsune-09/art/Tempura-Udon-877669948" passHref>
                 <div className="row-span-2 m-1 flex items-center justify-center rounded-lg bg-isabelline p-4 duration-200 hover:-translate-y-1 hover:shadow-2xl">
                   <div className="" style={{ writingMode: "vertical-lr" }}>
                     天ぷらうどん
