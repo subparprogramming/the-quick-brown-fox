@@ -4,7 +4,7 @@ module.exports = {
     extend: {
       colors: {
         "space-cadet": "#22223B",
-        indepencence: "#4A4E69",
+        independence: "#4A4E69",
         "heliotrope-gray": "#9A8C98",
         isabelline: "#F2E9E4",
         "raw-sienna": "#D67941",
