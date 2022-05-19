@@ -9,7 +9,7 @@ type Kana = {
   romaji: string;
 };
 
-type Yoon = {
+type Youon = {
   kana: Kana;
   dakuten: Kana | null;
   handakuten: Kana | null;
@@ -17,7 +17,7 @@ type Yoon = {
 
 type Gojuon = {
   kana: Kana;
-  yoon: Yoon[] | null;
+  youon: Youon[] | null;
   dakuten: Kana | null;
   handakuten: Kana | null;
 };
@@ -33,31 +33,31 @@ const gojuon: GojuonGroup[] = [
     kana: [
       {
         kana: { kana: "あ", romaji: "a" },
-        yoon: null,
+        youon: null,
         dakuten: null,
         handakuten: null,
       },
       {
         kana: { kana: "い", romaji: "i" },
-        yoon: null,
+        youon: null,
         dakuten: null,
         handakuten: null,
       },
       {
         kana: { kana: "う", romaji: "u" },
-        yoon: null,
+        youon: null,
         dakuten: null,
         handakuten: null,
       },
       {
         kana: { kana: "え", romaji: "e" },
-        yoon: null,
+        youon: null,
         dakuten: null,
         handakuten: null,
       },
       {
         kana: { kana: "お", romaji: "o" },
-        yoon: null,
+        youon: null,
         dakuten: null,
         handakuten: null,
       },
@@ -68,13 +68,13 @@ const gojuon: GojuonGroup[] = [
     kana: [
       {
         kana: { kana: "か", romaji: "ka" },
-        yoon: null,
+        youon: null,
         dakuten: { kana: "が", romaji: "ga" },
         handakuten: null,
       },
       {
         kana: { kana: "き", romaji: "ki" },
-        yoon: [
+        youon: [
           { kana: { kana: "きゃ", romaji: "kya" }, dakuten: { kana: "ぎゃ", romaji: "gya" }, handakuten: null },
           { kana: { kana: "きゅ", romaji: "kyu" }, dakuten: { kana: "ぎゅ", romaji: "gyu" }, handakuten: null },
           { kana: { kana: "きょ", romaji: "kyo" }, dakuten: { kana: "ぎょ", romaji: "gyo" }, handakuten: null },
@@ -84,19 +84,19 @@ const gojuon: GojuonGroup[] = [
       },
       {
         kana: { kana: "く", romaji: "ku" },
-        yoon: null,
+        youon: null,
         dakuten: { kana: "ぐ", romaji: "gu" },
         handakuten: null,
       },
       {
         kana: { kana: "け", romaji: "ke" },
-        yoon: null,
+        youon: null,
         dakuten: { kana: "げ", romaji: "ge" },
         handakuten: null,
       },
       {
         kana: { kana: "こ", romaji: "ko" },
-        yoon: null,
+        youon: null,
         dakuten: { kana: "ご", romaji: "go" },
         handakuten: null,
       },
@@ -107,13 +107,13 @@ const gojuon: GojuonGroup[] = [
     kana: [
       {
         kana: { kana: "さ", romaji: "sa" },
-        yoon: null,
+        youon: null,
         dakuten: { kana: "ざ", romaji: "za" },
         handakuten: null,
       },
       {
         kana: { kana: "し", romaji: "shi" },
-        yoon: [
+        youon: [
           { kana: { kana: "しゃ", romaji: "sha" }, dakuten: { kana: "じゃ", romaji: "ja" }, handakuten: null },
           { kana: { kana: "しゅ", romaji: "shu" }, dakuten: { kana: "じゅ", romaji: "ju" }, handakuten: null },
           { kana: { kana: "しょ", romaji: "sho" }, dakuten: { kana: "じょ", romaji: "jo" }, handakuten: null },
@@ -123,19 +123,19 @@ const gojuon: GojuonGroup[] = [
       },
       {
         kana: { kana: "す", romaji: "su" },
-        yoon: null,
+        youon: null,
         dakuten: { kana: "ず", romaji: "zu" },
         handakuten: null,
       },
       {
         kana: { kana: "せ", romaji: "se" },
-        yoon: null,
+        youon: null,
         dakuten: { kana: "ぜ", romaji: "ze" },
         handakuten: null,
       },
       {
         kana: { kana: "そ", romaji: "so" },
-        yoon: null,
+        youon: null,
         dakuten: { kana: "ぞ", romaji: "zo" },
         handakuten: null,
       },
@@ -146,13 +146,13 @@ const gojuon: GojuonGroup[] = [
     kana: [
       {
         kana: { kana: "た", romaji: "ta" },
-        yoon: null,
+        youon: null,
         dakuten: { kana: "だ", romaji: "da" },
         handakuten: null,
       },
       {
         kana: { kana: "ち", romaji: "chi" },
-        yoon: [
+        youon: [
           { kana: { kana: "ちゃ", romaji: "cha" }, dakuten: { kana: "ぢゃ", romaji: "ja" }, handakuten: null },
           { kana: { kana: "ちゅ", romaji: "chu" }, dakuten: { kana: "ぢゅ", romaji: "ju" }, handakuten: null },
           { kana: { kana: "ちょ", romaji: "cho" }, dakuten: { kana: "ぢょ", romaji: "jo" }, handakuten: null },
@@ -162,19 +162,19 @@ const gojuon: GojuonGroup[] = [
       },
       {
         kana: { kana: "つ", romaji: "tsu" },
-        yoon: null,
+        youon: null,
         dakuten: { kana: "づ", romaji: "zu" },
         handakuten: null,
       },
       {
         kana: { kana: "て", romaji: "te" },
-        yoon: null,
+        youon: null,
         dakuten: { kana: "で", romaji: "de" },
         handakuten: null,
       },
       {
         kana: { kana: "と", romaji: "to" },
-        yoon: null,
+        youon: null,
         dakuten: { kana: "ど", romaji: "do" },
         handakuten: null,
       },
@@ -185,13 +185,13 @@ const gojuon: GojuonGroup[] = [
     kana: [
       {
         kana: { kana: "な", romaji: "na" },
-        yoon: null,
+        youon: null,
         dakuten: { kana: "ば", romaji: "ba" },
         handakuten: null,
       },
       {
         kana: { kana: "に", romaji: "ni" },
-        yoon: [
+        youon: [
           { kana: { kana: "にゃ", romaji: "nya" }, dakuten: { kana: "びゃ", romaji: "bya" }, handakuten: null },
           { kana: { kana: "にゅ", romaji: "nyu" }, dakuten: { kana: "びゅ", romaji: "byu" }, handakuten: null },
           { kana: { kana: "にょ", romaji: "nyo" }, dakuten: { kana: "びょ", romaji: "byo" }, handakuten: null },
@@ -201,19 +201,19 @@ const gojuon: GojuonGroup[] = [
       },
       {
         kana: { kana: "ぬ", romaji: "nu" },
-        yoon: null,
+        youon: null,
         dakuten: { kana: "ぶ", romaji: "bu" },
         handakuten: null,
       },
       {
         kana: { kana: "ね", romaji: "ne" },
-        yoon: null,
+        youon: null,
         dakuten: { kana: "べ", romaji: "be" },
         handakuten: null,
       },
       {
         kana: { kana: "の", romaji: "no" },
-        yoon: null,
+        youon: null,
         dakuten: { kana: "ぼ", romaji: "bo" },
         handakuten: null,
       },
@@ -224,13 +224,13 @@ const gojuon: GojuonGroup[] = [
     kana: [
       {
         kana: { kana: "は", romaji: "ha" },
-        yoon: null,
+        youon: null,
         dakuten: { kana: "ば", romaji: "ba" },
         handakuten: { kana: "ぱ", romaji: "pa" },
       },
       {
         kana: { kana: "ひ", romaji: "hi" },
-        yoon: [
+        youon: [
           { kana: { kana: "ひゃ", romaji: "hya" }, dakuten: { kana: "びゃ", romaji: "bya" }, handakuten: { kana: "ぴゃ", romaji: "pya" } },
           { kana: { kana: "ひゅ", romaji: "hyu" }, dakuten: { kana: "びゅ", romaji: "byu" }, handakuten: { kana: "ぴゅ", romaji: "pyu" } },
           { kana: { kana: "ひょ", romaji: "hyo" }, dakuten: { kana: "びょ", romaji: "byo" }, handakuten: { kana: "ぴょ", romaji: "pyo" } },
@@ -240,19 +240,19 @@ const gojuon: GojuonGroup[] = [
       },
       {
         kana: { kana: "ふ", romaji: "fu" },
-        yoon: null,
+        youon: null,
         dakuten: { kana: "ぶ", romaji: "bu" },
         handakuten: { kana: "ぷ", romaji: "pu" },
       },
       {
         kana: { kana: "へ", romaji: "he" },
-        yoon: null,
+        youon: null,
         dakuten: { kana: "べ", romaji: "be" },
         handakuten: { kana: "ぺ", romaji: "pe" },
       },
       {
         kana: { kana: "ほ", romaji: "ho" },
-        yoon: null,
+        youon: null,
         dakuten: { kana: "ぼ", romaji: "bo" },
         handakuten: { kana: "ぽ", romaji: "po" },
       },
@@ -263,13 +263,13 @@ const gojuon: GojuonGroup[] = [
     kana: [
       {
         kana: { kana: "ま", romaji: "ma" },
-        yoon: null,
+        youon: null,
         dakuten: null,
         handakuten: null,
       },
       {
         kana: { kana: "み", romaji: "mi" },
-        yoon: [
+        youon: [
           { kana: { kana: "みゃ", romaji: "mya" }, dakuten: { kana: "びゃ", romaji: "bya" }, handakuten: null },
           { kana: { kana: "みゅ", romaji: "myu" }, dakuten: { kana: "びゅ", romaji: "byu" }, handakuten: null },
           { kana: { kana: "みょ", romaji: "myo" }, dakuten: { kana: "びょ", romaji: "byo" }, handakuten: null },
@@ -279,19 +279,19 @@ const gojuon: GojuonGroup[] = [
       },
       {
         kana: { kana: "む", romaji: "mu" },
-        yoon: null,
+        youon: null,
         dakuten: null,
         handakuten: null,
       },
       {
         kana: { kana: "め", romaji: "me" },
-        yoon: null,
+        youon: null,
         dakuten: null,
         handakuten: null,
       },
       {
         kana: { kana: "も", romaji: "mo" },
-        yoon: null,
+        youon: null,
         dakuten: null,
         handakuten: null,
       },
@@ -302,21 +302,21 @@ const gojuon: GojuonGroup[] = [
     kana: [
       {
         kana: { kana: "や", romaji: "ya" },
-        yoon: null,
+        youon: null,
         dakuten: null,
         handakuten: null,
       },
       null,
       {
         kana: { kana: "ゆ", romaji: "yu" },
-        yoon: null,
+        youon: null,
         dakuten: null,
         handakuten: null,
       },
       null,
       {
         kana: { kana: "よ", romaji: "yo" },
-        yoon: null,
+        youon: null,
         dakuten: null,
         handakuten: null,
       },
@@ -327,13 +327,13 @@ const gojuon: GojuonGroup[] = [
     kana: [
       {
         kana: { kana: "ら", romaji: "ra" },
-        yoon: null,
+        youon: null,
         dakuten: null,
         handakuten: null,
       },
       {
         kana: { kana: "り", romaji: "ri" },
-        yoon: [
+        youon: [
           { kana: { kana: "りゃ", romaji: "rya" }, dakuten: null, handakuten: null },
           { kana: { kana: "りゅ", romaji: "ryu" }, dakuten: null, handakuten: null },
           { kana: { kana: "りょ", romaji: "ryo" }, dakuten: null, handakuten: null },
@@ -343,19 +343,19 @@ const gojuon: GojuonGroup[] = [
       },
       {
         kana: { kana: "る", romaji: "ru" },
-        yoon: null,
+        youon: null,
         dakuten: null,
         handakuten: null,
       },
       {
         kana: { kana: "れ", romaji: "re" },
-        yoon: null,
+        youon: null,
         dakuten: null,
         handakuten: null,
       },
       {
         kana: { kana: "ろ", romaji: "ro" },
-        yoon: null,
+        youon: null,
         dakuten: null,
         handakuten: null,
       },
@@ -366,7 +366,7 @@ const gojuon: GojuonGroup[] = [
     kana: [
       {
         kana: { kana: "わ", romaji: "wa" },
-        yoon: null,
+        youon: null,
         dakuten: null,
         handakuten: null,
       },
@@ -375,7 +375,7 @@ const gojuon: GojuonGroup[] = [
       null,
       {
         kana: { kana: "を", romaji: "wo" },
-        yoon: null,
+        youon: null,
         dakuten: null,
         handakuten: null,
       },
@@ -434,9 +434,9 @@ const Home: NextPage = () => {
                       <div key={index} className="group relative col-span-1 row-span-1 m-1 flex flex-col items-center justify-center rounded-lg bg-isabelline p-4">
                         <p className="">{kana.kana.kana}</p>
                         <p className="h-1 pt-1 opacity-0 duration-200 group-hover:h-full group-hover:opacity-100">{kana.kana.romaji}</p>
-                        {/* digraph (yoon) and diacritic ((han)dakuten) indicators */}
+                        {/* digraph (youon) and diacritic ((han)dakuten) indicators */}
                         <div className="absolute bottom-1 right-1 flex space-x-1">
-                          {kana.yoon != null ? <div className="h-3 w-3 rounded-full bg-emerald-400"></div> : <div className="h-3 w-3 rounded-full "></div>}
+                          {kana.youon != null ? <div className="h-3 w-3 rounded-full bg-emerald-400"></div> : <div className="h-3 w-3 rounded-full "></div>}
                           {kana.dakuten != null || kana.handakuten != null ? <div className="h-3 w-3 rounded-full bg-violet-500"></div> : <div className="h-3 w-3 rounded-full "></div>}
                         </div>
                       </div>
