@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Link from "next/link";
 import Footer from "../components/Footer";
 
 const Home: NextPage = () => {
@@ -32,20 +33,33 @@ const Home: NextPage = () => {
             />
           </div>
 
+          {/* learn hiragana/katakana buttons */}
+          <div className="mx-auto grid w-full grid-flow-row grid-cols-1 justify-items-center gap-4 px-8 py-2 md:w-3/4 md:grid-cols-2">
+            <Link href="/hiragana">
+              <div className="col-span-1 flex w-full justify-center rounded-lg border-2 border-independence bg-independence p-2 duration-200 hover:border-raw-sienna">Learn Hiragana</div>
+            </Link>
+
+            <Link href="/katakana">
+              <div className="col-span-1 flex w-full justify-center rounded-lg border-2 border-independence bg-independence p-2 duration-200 hover:border-raw-sienna">Learn Katakana</div>
+            </Link>
+          </div>
+
           {/* grid content */}
-          <div className="mx-auto mt-8 flex w-full flex-col lg:w-3/4">
+          <div className="mx-auto mt-8 flex w-full flex-col md:w-3/4">
             <div className="ml-auto mr-0 px-10 text-right">idk man... this doesn&apos;t really do sh*t 😑</div>
-            <div className="pt-1font-sans grid grid-flow-col grid-cols-5 grid-rows-4 px-8 font-bold text-black">
+            <div className="grid grid-flow-col grid-cols-5 grid-rows-4 px-8 pt-1 font-sans font-bold text-black">
               <div className="row-span-3 row-start-2 m-1 flex items-center justify-center rounded-lg bg-isabelline p-4">01</div>
               <div className="m-1 flex items-center justify-center rounded-lg bg-isabelline p-4">02</div>
               <div className="m-1 flex items-center justify-center rounded-lg bg-isabelline p-4">03</div>
               <div className="m-1 flex items-center justify-center rounded-lg bg-raw-sienna p-4">04</div>
               <div className="col-span-2 m-1 flex items-center justify-center rounded-lg bg-isabelline p-4">05</div>
-              <div className="row-span-2 m-1 flex items-center justify-center rounded-lg bg-isabelline p-4">
-                <div className="" style={{ writingMode: "vertical-lr" }}>
-                  天ぷらうどん
+              <Link href="https://www.deviantart.com/kitsune-09/art/Tempura-Udon-877669948">
+                <div className="row-span-2 m-1 flex items-center justify-center rounded-lg bg-isabelline p-4 duration-200 hover:-translate-y-1 hover:shadow-2xl">
+                  <div className="" style={{ writingMode: "vertical-lr" }}>
+                    天ぷらうどん
+                  </div>
                 </div>
-              </div>
+              </Link>
               <div className="row-span-2 m-1 flex items-center justify-center rounded-lg border-4 p-4 text-isabelline">07</div>
               <div className="col-span-2 m-1 flex items-center justify-center rounded-lg bg-isabelline p-4">
                 <img src="/assets/fox-animated-6-half-height.gif" alt="fox sleeping" className="w-2/3 object-cover object-bottom" style={{ imageRendering: "pixelated" }} />
