@@ -431,8 +431,9 @@ const Home: NextPage = () => {
                   <div className="col-span-1 row-span-1 m-1 flex items-center justify-center rounded-lg p-4 text-xl text-isabelline">{group.leadConsonant}</div>
                   {group.kana.map((kana, index) =>
                     kana != null ? (
-                      <div key={index} className="relative col-span-1 row-span-1 m-1 flex items-center justify-center rounded-lg bg-isabelline p-4">
-                        {kana.kana.kana}
+                      <div key={index} className="group relative col-span-1 row-span-1 m-1 flex flex-col items-center justify-center rounded-lg bg-isabelline p-4">
+                        <p className="">{kana.kana.kana}</p>
+                        <p className="h-1 pt-1 opacity-0 duration-200 group-hover:h-full group-hover:opacity-100">{kana.kana.romaji}</p>
                         {/* digraph (yoon) and diacritic ((han)dakuten) indicators */}
                         <div className="absolute bottom-1 right-1 flex space-x-1">
                           {kana.yoon != null ? <div className="h-3 w-3 rounded-full bg-emerald-400"></div> : <div className="h-3 w-3 rounded-full "></div>}
