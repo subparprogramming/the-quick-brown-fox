@@ -418,7 +418,7 @@ const Home: NextPage = () => {
           </div>
 
           {/* grid content */}
-          <div className="mx-auto mt-8 flex w-full flex-col">
+          <div className="mx-auto flex w-full flex-col">
             <div className="grid grid-flow-row grid-cols-6 pr-6 pt-1 font-sans text-lg font-bold text-black">
               <div className="col-span-1 row-span-1"></div>
               <div className="col-span-1 row-span-1 m-1 flex items-center justify-center rounded-lg p-4 text-xl text-isabelline">a</div>
