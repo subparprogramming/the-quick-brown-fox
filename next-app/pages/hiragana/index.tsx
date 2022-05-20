@@ -470,14 +470,14 @@ function GojuonRow(props: { index: number; group: GojuonGroup }): JSX.Element {
       {/* toggle show dakuten and handakuten buttons */}
       <div className="flex flex-col">
         {props.group && props.group.kana[0] && props.group.kana[0].dakuten != null ? (
-          <div onClick={() => setShowDakuten(!showDakuten)} className="col-span-1 row-span-1 m-1 h-2/5 w-1/3 rounded-lg bg-violet-500 text-xl text-isabelline">
+          <div onClick={() => setShowDakuten(!showDakuten)} className="col-span-1 row-span-1 m-1 h-2/5 w-3/4 rounded-lg bg-violet-500 text-center text-xl text-isabelline md:w-1/3">
             <p className="translate-y-1 translate-x-2">゛</p>
           </div>
         ) : (
           <div className="col-span-1 row-span-1 m-1 h-2/5 w-1/3"></div>
         )}
         {props.group && props.group.kana[0] && props.group.kana[0].handakuten != null ? (
-          <div onClick={() => setShowHandakuten(!showHandakuten)} className="col-span-1 row-span-1 m-1 h-2/5 w-1/3 rounded-lg bg-violet-500 text-xl text-isabelline">
+          <div onClick={() => setShowHandakuten(!showHandakuten)} className="col-span-1 row-span-1 m-1 h-2/5 w-3/4 rounded-lg bg-violet-500 text-center text-xl text-isabelline md:w-1/3">
             <p className="translate-y-1 translate-x-2">゜</p>
           </div>
         ) : (
@@ -552,7 +552,7 @@ const Home: NextPage = () => {
         <div className="flex max-w-screen-xl flex-col">
           {/* header */}
           <div className="grid grid-flow-row grid-cols-3 items-center p-4 pt-12 sm:p-8 sm:pt-8">
-            <div className="col-span-2 flex flex-col justify-start space-x-2 font-rampart-one text-4xl font-bold sm:text-6xl xl:text-7xl">
+            <div className="col-span-2 flex flex-col justify-start space-x-2 font-rampart-one text-5xl font-bold sm:text-6xl xl:text-7xl">
               <div className="flex flex-wrap">
                 <h1 className="">Hiragana</h1>
               </div>
