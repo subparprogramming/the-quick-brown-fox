@@ -5,421 +5,9 @@ import Link from "next/link";
 import { ArrowNarrowLeftIcon } from "@heroicons/react/solid";
 import { useSpring, animated } from "react-spring";
 import Footer from "../../components/Footer";
+import * as hiragana from "../../data/hiragana";
 
-type Kana = {
-  kana: string;
-  romaji: string;
-};
-
-type HanDakuten = {
-  kana: Kana;
-  youon: [Kana, Kana, Kana] | null;
-};
-
-type Gojuon = {
-  kana: Kana;
-  youon: [Kana, Kana, Kana] | null;
-  dakuten: HanDakuten | null;
-  handakuten: HanDakuten | null;
-};
-
-type GojuonGroup = {
-  leadConsonant: string | null;
-  kana: [Gojuon | null, Gojuon | null, Gojuon | null, Gojuon | null, Gojuon | null];
-};
-
-const gojuon: GojuonGroup[] = [
-  {
-    leadConsonant: "•",
-    kana: [
-      {
-        kana: { kana: "あ", romaji: "a" },
-        youon: null,
-        dakuten: null,
-        handakuten: null,
-      },
-      {
-        kana: { kana: "い", romaji: "i" },
-        youon: null,
-        dakuten: null,
-        handakuten: null,
-      },
-      {
-        kana: { kana: "う", romaji: "u" },
-        youon: null,
-        dakuten: null,
-        handakuten: null,
-      },
-      {
-        kana: { kana: "え", romaji: "e" },
-        youon: null,
-        dakuten: null,
-        handakuten: null,
-      },
-      {
-        kana: { kana: "お", romaji: "o" },
-        youon: null,
-        dakuten: null,
-        handakuten: null,
-      },
-    ],
-  },
-  {
-    leadConsonant: "k",
-    kana: [
-      {
-        kana: { kana: "か", romaji: "ka" },
-        youon: null,
-        dakuten: { kana: { kana: "が", romaji: "ga" }, youon: null },
-        handakuten: null,
-      },
-      {
-        kana: { kana: "き", romaji: "ki" },
-        youon: [
-          { kana: "きゃ", romaji: "kya" },
-          { kana: "きゅ", romaji: "kyu" },
-          { kana: "きょ", romaji: "kyo" },
-        ],
-        dakuten: {
-          kana: { kana: "ぎ", romaji: "gi" },
-          youon: [
-            { kana: "ぎゃ", romaji: "gya" },
-            { kana: "ぎゅ", romaji: "gyu" },
-            { kana: "ぎょ", romaji: "gyo" },
-          ],
-        },
-        handakuten: null,
-      },
-      {
-        kana: { kana: "く", romaji: "ku" },
-        youon: null,
-        dakuten: { kana: { kana: "ぐ", romaji: "gu" }, youon: null },
-        handakuten: null,
-      },
-      {
-        kana: { kana: "け", romaji: "ke" },
-        youon: null,
-        dakuten: { kana: { kana: "げ", romaji: "ge" }, youon: null },
-        handakuten: null,
-      },
-      {
-        kana: { kana: "こ", romaji: "ko" },
-        youon: null,
-        dakuten: { kana: { kana: "ご", romaji: "go" }, youon: null },
-        handakuten: null,
-      },
-    ],
-  },
-  {
-    leadConsonant: "s",
-    kana: [
-      {
-        kana: { kana: "さ", romaji: "sa" },
-        youon: null,
-        dakuten: { kana: { kana: "ざ", romaji: "za" }, youon: null },
-        handakuten: null,
-      },
-      {
-        kana: { kana: "し", romaji: "shi" },
-        youon: [
-          { kana: "しゃ", romaji: "sha" },
-          { kana: "しゅ", romaji: "shu" },
-          { kana: "しょ", romaji: "sho" },
-        ],
-        dakuten: {
-          kana: { kana: "じ", romaji: "ji" },
-          youon: [
-            { kana: "じゃ", romaji: "ja" },
-            { kana: "じゅ", romaji: "ju" },
-            { kana: "じょ", romaji: "jo" },
-          ],
-        },
-        handakuten: null,
-      },
-      {
-        kana: { kana: "す", romaji: "su" },
-        youon: null,
-        dakuten: { kana: { kana: "ず", romaji: "zu" }, youon: null },
-        handakuten: null,
-      },
-      {
-        kana: { kana: "せ", romaji: "se" },
-        youon: null,
-        dakuten: { kana: { kana: "ぜ", romaji: "ze" }, youon: null },
-        handakuten: null,
-      },
-      {
-        kana: { kana: "そ", romaji: "so" },
-        youon: null,
-        dakuten: { kana: { kana: "ぞ", romaji: "zo" }, youon: null },
-        handakuten: null,
-      },
-    ],
-  },
-  {
-    leadConsonant: "t",
-    kana: [
-      {
-        kana: { kana: "た", romaji: "ta" },
-        youon: null,
-        dakuten: { kana: { kana: "だ", romaji: "da" }, youon: null },
-        handakuten: null,
-      },
-      {
-        kana: { kana: "ち", romaji: "chi" },
-        youon: [
-          { kana: "ちゃ", romaji: "cha" },
-          { kana: "ちゅ", romaji: "chu" },
-          { kana: "ちょ", romaji: "cho" },
-        ],
-        dakuten: {
-          kana: { kana: "ぢ", romaji: "ji" },
-          youon: [
-            { kana: "ぢゃ", romaji: "ja" },
-            { kana: "ぢゅ", romaji: "ju" },
-            { kana: "ぢょ", romaji: "jo" },
-          ],
-        },
-        handakuten: null,
-      },
-      {
-        kana: { kana: "つ", romaji: "tsu" },
-        youon: null,
-        dakuten: { kana: { kana: "づ", romaji: "zu" }, youon: null },
-        handakuten: null,
-      },
-      {
-        kana: { kana: "て", romaji: "te" },
-        youon: null,
-        dakuten: { kana: { kana: "で", romaji: "de" }, youon: null },
-        handakuten: null,
-      },
-      {
-        kana: { kana: "と", romaji: "to" },
-        youon: null,
-        dakuten: { kana: { kana: "ど", romaji: "do" }, youon: null },
-        handakuten: null,
-      },
-    ],
-  },
-  {
-    leadConsonant: "n",
-    kana: [
-      {
-        kana: { kana: "な", romaji: "na" },
-        youon: null,
-        dakuten: null,
-        handakuten: null,
-      },
-      {
-        kana: { kana: "に", romaji: "ni" },
-        youon: [
-          { kana: "にゃ", romaji: "nya" },
-          { kana: "にゅ", romaji: "nyu" },
-          { kana: "にょ", romaji: "nyo" },
-        ],
-        dakuten: null,
-        handakuten: null,
-      },
-      {
-        kana: { kana: "ぬ", romaji: "nu" },
-        youon: null,
-        dakuten: null,
-        handakuten: null,
-      },
-      {
-        kana: { kana: "ね", romaji: "ne" },
-        youon: null,
-        dakuten: null,
-        handakuten: null,
-      },
-      {
-        kana: { kana: "の", romaji: "no" },
-        youon: null,
-        dakuten: null,
-        handakuten: null,
-      },
-    ],
-  },
-  {
-    leadConsonant: "h",
-    kana: [
-      {
-        kana: { kana: "は", romaji: "ha" },
-        youon: null,
-        dakuten: { kana: { kana: "ば", romaji: "ba" }, youon: null },
-        handakuten: { kana: { kana: "ぱ", romaji: "pa" }, youon: null },
-      },
-      {
-        kana: { kana: "ひ", romaji: "hi" },
-        youon: [
-          { kana: "ひゃ", romaji: "hya" },
-          { kana: "ひゅ", romaji: "hyu" },
-          { kana: "ひょ", romaji: "hyo" },
-        ],
-        dakuten: {
-          kana: { kana: "び", romaji: "bi" },
-          youon: [
-            { kana: "びゃ", romaji: "bya" },
-            { kana: "びゅ", romaji: "byu" },
-            { kana: "びょ", romaji: "byo" },
-          ],
-        },
-        handakuten: {
-          kana: { kana: "ぴ", romaji: "pi" },
-          youon: [
-            { kana: "ぴゃ", romaji: "pya" },
-            { kana: "ぴゅ", romaji: "pyu" },
-            { kana: "ぴょ", romaji: "pyo" },
-          ],
-        },
-      },
-      {
-        kana: { kana: "ふ", romaji: "fu" },
-        youon: null,
-        dakuten: { kana: { kana: "ぶ", romaji: "bu" }, youon: null },
-        handakuten: { kana: { kana: "ぷ", romaji: "pu" }, youon: null },
-      },
-      {
-        kana: { kana: "へ", romaji: "he" },
-        youon: null,
-        dakuten: { kana: { kana: "べ", romaji: "be" }, youon: null },
-        handakuten: { kana: { kana: "ぺ", romaji: "pe" }, youon: null },
-      },
-      {
-        kana: { kana: "ほ", romaji: "ho" },
-        youon: null,
-        dakuten: { kana: { kana: "ぼ", romaji: "bo" }, youon: null },
-        handakuten: { kana: { kana: "ぽ", romaji: "po" }, youon: null },
-      },
-    ],
-  },
-  {
-    leadConsonant: "m",
-    kana: [
-      {
-        kana: { kana: "ま", romaji: "ma" },
-        youon: null,
-        dakuten: null,
-        handakuten: null,
-      },
-      {
-        kana: { kana: "み", romaji: "mi" },
-        youon: [
-          { kana: "みゃ", romaji: "mya" },
-          { kana: "みゅ", romaji: "myu" },
-          { kana: "みょ", romaji: "myo" },
-        ],
-        dakuten: null,
-        handakuten: null,
-      },
-      {
-        kana: { kana: "む", romaji: "mu" },
-        youon: null,
-        dakuten: null,
-        handakuten: null,
-      },
-      {
-        kana: { kana: "め", romaji: "me" },
-        youon: null,
-        dakuten: null,
-        handakuten: null,
-      },
-      {
-        kana: { kana: "も", romaji: "mo" },
-        youon: null,
-        dakuten: null,
-        handakuten: null,
-      },
-    ],
-  },
-  {
-    leadConsonant: "y",
-    kana: [
-      {
-        kana: { kana: "や", romaji: "ya" },
-        youon: null,
-        dakuten: null,
-        handakuten: null,
-      },
-      null,
-      {
-        kana: { kana: "ゆ", romaji: "yu" },
-        youon: null,
-        dakuten: null,
-        handakuten: null,
-      },
-      null,
-      {
-        kana: { kana: "よ", romaji: "yo" },
-        youon: null,
-        dakuten: null,
-        handakuten: null,
-      },
-    ],
-  },
-  {
-    leadConsonant: "r",
-    kana: [
-      {
-        kana: { kana: "ら", romaji: "ra" },
-        youon: null,
-        dakuten: null,
-        handakuten: null,
-      },
-      {
-        kana: { kana: "り", romaji: "ri" },
-        youon: [
-          { kana: "りゃ", romaji: "rya" },
-          { kana: "りゅ", romaji: "ryu" },
-          { kana: "りょ", romaji: "ryo" },
-        ],
-        dakuten: null,
-        handakuten: null,
-      },
-      {
-        kana: { kana: "る", romaji: "ru" },
-        youon: null,
-        dakuten: null,
-        handakuten: null,
-      },
-      {
-        kana: { kana: "れ", romaji: "re" },
-        youon: null,
-        dakuten: null,
-        handakuten: null,
-      },
-      {
-        kana: { kana: "ろ", romaji: "ro" },
-        youon: null,
-        dakuten: null,
-        handakuten: null,
-      },
-    ],
-  },
-  {
-    leadConsonant: "w",
-    kana: [
-      {
-        kana: { kana: "わ", romaji: "wa" },
-        youon: null,
-        dakuten: null,
-        handakuten: null,
-      },
-      null,
-      null,
-      null,
-      {
-        kana: { kana: "を", romaji: "wo" },
-        youon: null,
-        dakuten: null,
-        handakuten: null,
-      },
-    ],
-  },
-];
-
-function GojuonRow(props: { index: number; group: GojuonGroup }): JSX.Element {
+function GojuonRow(props: { index: number; group: hiragana.GojuonGroup }): JSX.Element {
   const [showDakuten, setShowDakuten] = useState(false);
   const [showHandakuten, setShowHandakuten] = useState(false);
   const dakuSpring = useSpring({
@@ -445,6 +33,43 @@ function GojuonRow(props: { index: number; group: GojuonGroup }): JSX.Element {
     },
   });
 
+  const [showYouon, setShowYouon] = useState(false);
+  const [showDakutenYouon, setShowDakutenYouon] = useState(false);
+  const [showHandakutenYouon, setShowHandakutenYouon] = useState(false);
+  const youonSpring = useSpring({
+    from: { height: 0, opacity: 0, paddingTop: "0rem", paddingBottom: "0rem", marginTop: "-0.25rem", marginBottom: "-0.25rem" },
+    to: {
+      height: showYouon ? "auto" : 0,
+      opacity: showYouon ? 1 : 0,
+      paddingTop: showYouon ? "1rem" : "0rem",
+      paddingBottom: showYouon ? "1rem" : "0rem",
+      marginTop: showYouon ? "0.25rem" : "-0.25rem",
+      marginBottom: showYouon ? "0.5rem" : "-0.25rem",
+    },
+  });
+  const dakutenYouonSpring = useSpring({
+    from: { height: 0, opacity: 0, paddingTop: "0rem", paddingBottom: "0rem", marginTop: "-0.25rem", marginBottom: "-0.25rem" },
+    to: {
+      height: showDakutenYouon ? "auto" : 0,
+      opacity: showDakutenYouon ? 1 : 0,
+      paddingTop: showDakutenYouon ? "1rem" : "0rem",
+      paddingBottom: showDakutenYouon ? "1rem" : "0rem",
+      marginTop: showDakutenYouon ? "0.25rem" : "-0.25rem",
+      marginBottom: showDakutenYouon ? "0.5rem" : "-0.25rem",
+    },
+  });
+  const handakutenYouonSpring = useSpring({
+    from: { height: 0, opacity: 0, paddingTop: "0rem", paddingBottom: "0rem", marginTop: "-0.25rem", marginBottom: "-0.25rem" },
+    to: {
+      height: showHandakutenYouon ? "auto" : 0,
+      opacity: showHandakutenYouon ? 1 : 0,
+      paddingTop: showHandakutenYouon ? "1rem" : "0rem",
+      paddingBottom: showHandakutenYouon ? "1rem" : "0rem",
+      marginTop: showHandakutenYouon ? "0.25rem" : "-0.25rem",
+      marginBottom: showHandakutenYouon ? "0.5rem" : "-0.25rem",
+    },
+  });
+
   return (
     <>
       {/* lead consonant */}
@@ -453,9 +78,22 @@ function GojuonRow(props: { index: number; group: GojuonGroup }): JSX.Element {
       {/* gojuon kana */}
       {props.group.kana.map((gojuon, index) =>
         gojuon != null ? (
-          <div key={index} onClick={() => {}} className="group relative col-span-1 row-span-1 m-1 flex flex-col items-center justify-center rounded-lg bg-isabelline p-4">
+          <div
+            key={index}
+            onClick={() => {
+              if (gojuon.youon != null) {
+                setShowYouon(!showYouon);
+              }
+            }}
+            className={
+              showYouon && gojuon.youon != null
+                ? "group relative col-span-1 row-span-1 m-1 -mb-1 flex cursor-pointer flex-col items-center justify-center rounded-t-lg bg-isabelline p-4"
+                : "group relative col-span-1 row-span-1 m-1 flex flex-col items-center justify-center rounded-lg bg-isabelline p-4" +
+                  (gojuon.youon != null ? " cursor-pointer border-2 border-emerald-400" : "")
+            }
+          >
             <p className="">{gojuon.kana.kana}</p>
-            <p className="h-1 pt-1 opacity-0 duration-200 group-hover:h-full group-hover:opacity-100">{gojuon.kana.romaji}</p>
+            <p className="h-0 opacity-0 duration-200 group-hover:h-7 group-hover:opacity-100">{gojuon.kana.romaji}</p>
             {/* digraph (youon) and diacritic ((han)dakuten) indicators */}
             <div className="absolute bottom-1 right-1 flex space-x-1">
               {gojuon.youon != null ? <div className="h-3 w-3 rounded-full bg-emerald-400"></div> : <div className="w-3"></div>}
@@ -470,20 +108,55 @@ function GojuonRow(props: { index: number; group: GojuonGroup }): JSX.Element {
       {/* toggle show dakuten and handakuten buttons */}
       <div className="flex flex-col">
         {props.group && props.group.kana[0] && props.group.kana[0].dakuten != null ? (
-          <div onClick={() => setShowDakuten(!showDakuten)} className="col-span-1 row-span-1 m-1 h-2/5 w-3/4 rounded-lg bg-violet-500 text-center text-xl text-isabelline md:w-1/3">
+          <div
+            onClick={() => {
+              setShowDakuten(!showDakuten);
+              setShowDakutenYouon(false);
+            }}
+            className="col-span-1 row-span-1 m-1 h-2/5 w-3/4 cursor-pointer rounded-lg bg-violet-500 text-center text-xl text-isabelline md:w-1/3"
+          >
             <p className="translate-y-1 translate-x-2">゛</p>
           </div>
         ) : (
           <div className="col-span-1 row-span-1 m-1 h-2/5 w-1/3"></div>
         )}
         {props.group && props.group.kana[0] && props.group.kana[0].handakuten != null ? (
-          <div onClick={() => setShowHandakuten(!showHandakuten)} className="col-span-1 row-span-1 m-1 h-2/5 w-3/4 rounded-lg bg-violet-500 text-center text-xl text-isabelline md:w-1/3">
+          <div
+            onClick={() => {
+              setShowHandakuten(!showHandakuten);
+              setShowHandakutenYouon(false);
+            }}
+            className="col-span-1 row-span-1 m-1 h-2/5 w-3/4 cursor-pointer rounded-lg bg-violet-500 text-center text-xl text-isabelline md:w-1/3"
+          >
             <p className="translate-y-1 translate-x-2">゜</p>
           </div>
         ) : (
           <div className="col-span-1 row-span-1 m-1 h-2/5 w-1/3"></div>
         )}
       </div>
+
+      {/* gojuon's youon row */}
+      {props.group.kana[1]?.youon && (
+        <>
+          <animated.div style={youonSpring} className="col-span-1"></animated.div>
+          <animated.div style={youonSpring} className="col-span-3 mx-1 grid w-auto grid-cols-3 gap-2 rounded-2xl bg-isabelline p-4">
+            <div className="group col-span-1 flex flex-col items-center justify-center">
+              <p>{props.group.kana[1].youon[0].kana}</p>
+              <p className="h-0 opacity-0 duration-200 group-hover:h-7 group-hover:opacity-100">{props.group.kana[1].youon[0].romaji}</p>
+            </div>
+            <div className="group col-span-1 flex flex-col items-center justify-center">
+              <p>{props.group.kana[1].youon[1].kana}</p>
+              <p className="h-0 opacity-0 duration-200 group-hover:h-7 group-hover:opacity-100">{props.group.kana[1].youon[1].romaji}</p>
+            </div>
+            <div className="group col-span-1 flex flex-col items-center justify-center">
+              <p>{props.group.kana[1].youon[2].kana}</p>
+              <p className="h-0 opacity-0 duration-200 group-hover:h-7 group-hover:opacity-100">{props.group.kana[1].youon[2].romaji}</p>
+            </div>
+          </animated.div>
+          <animated.div style={youonSpring} className="col-span-1"></animated.div>
+          <animated.div style={youonSpring} className="col-span-2"></animated.div>
+        </>
+      )}
 
       {/* dakuten row */}
       <>
@@ -492,9 +165,23 @@ function GojuonRow(props: { index: number; group: GojuonGroup }): JSX.Element {
         </animated.div>
         {props.group.kana.map((gojuon, index) =>
           gojuon != null ? (
-            <animated.div key={index} style={dakuSpring} className="group relative col-span-1 row-span-1 mx-1 flex flex-col items-center justify-center rounded-lg border-2 p-4 text-isabelline">
+            <animated.div
+              key={index}
+              onClick={() => {
+                if (gojuon.dakuten?.youon != null) {
+                  setShowDakutenYouon(!showDakutenYouon);
+                }
+              }}
+              style={dakuSpring}
+              className={
+                showDakutenYouon && gojuon.dakuten?.youon != null
+                  ? "z-1 group relative col-span-1 row-span-1 m-1 !-mb-[0.375rem] flex cursor-pointer flex-col items-center justify-center rounded-t-lg border-2 border-b-0 bg-space-cadet p-4 text-isabelline"
+                  : "group relative col-span-1 row-span-1 m-1 flex flex-col items-center justify-center rounded-lg border-2 p-4 text-isabelline" +
+                    (gojuon.dakuten?.youon != null ? " cursor-pointer" : "")
+              }
+            >
               <p className="">{gojuon.dakuten?.kana.kana}</p>
-              <p className="h-1 pt-1 opacity-0 duration-200 group-hover:h-full group-hover:opacity-100">{gojuon.dakuten?.kana.romaji}</p>
+              <p className="h-0 opacity-0 duration-200 group-hover:h-7 group-hover:opacity-100">{gojuon.dakuten?.kana.romaji}</p>
               {/* digraph (youon) indicator */}
               <div className="absolute bottom-1 right-1 flex space-x-1">
                 {gojuon.youon != null ? <div className="h-3 w-3 rounded-full bg-emerald-400"></div> : <div className="h-3 w-3 rounded-full "></div>}
@@ -507,6 +194,29 @@ function GojuonRow(props: { index: number; group: GojuonGroup }): JSX.Element {
         <animated.div style={dakuSpring} className="col-span-1"></animated.div>
       </>
 
+      {/* dakuten's youon row */}
+      {props.group.kana[1]?.dakuten?.youon && (
+        <>
+          <animated.div style={dakutenYouonSpring} className="col-span-1"></animated.div>
+          <animated.div style={dakutenYouonSpring} className="col-span-3 mx-1 grid w-auto grid-cols-3 gap-2 rounded-2xl border-2 p-4 text-isabelline">
+            <div className="group col-span-1 flex flex-col items-center justify-center">
+              <p>{props.group.kana[1].dakuten.youon[0].kana}</p>
+              <p className="h-0 opacity-0 duration-200 group-hover:h-7 group-hover:opacity-100">{props.group.kana[1].dakuten.youon[0].romaji}</p>
+            </div>
+            <div className="group col-span-1 flex flex-col items-center justify-center">
+              <p>{props.group.kana[1].dakuten.youon[1].kana}</p>
+              <p className="h-0 opacity-0 duration-200 group-hover:h-7 group-hover:opacity-100">{props.group.kana[1].dakuten.youon[1].romaji}</p>
+            </div>
+            <div className="group col-span-1 flex flex-col items-center justify-center">
+              <p>{props.group.kana[1].dakuten.youon[2].kana}</p>
+              <p className="h-0 opacity-0 duration-200 group-hover:h-7 group-hover:opacity-100">{props.group.kana[1].dakuten.youon[2].romaji}</p>
+            </div>
+          </animated.div>
+          <animated.div style={dakutenYouonSpring} className="col-span-1"></animated.div>
+          <animated.div style={dakutenYouonSpring} className="col-span-2"></animated.div>
+        </>
+      )}
+
       {/* handakuten row */}
       <>
         <animated.div style={handakuSpring} className="col-span-1 flex flex-col items-center justify-center text-isabelline underline decoration-2 underline-offset-4">
@@ -514,9 +224,23 @@ function GojuonRow(props: { index: number; group: GojuonGroup }): JSX.Element {
         </animated.div>
         {props.group.kana.map((gojuon, index) =>
           gojuon != null ? (
-            <animated.div key={index} style={handakuSpring} className="group relative col-span-1 row-span-1 m-1 flex flex-col items-center justify-center rounded-lg border-2 p-4 text-isabelline">
+            <animated.div
+              key={index}
+              onClick={() => {
+                if (gojuon.handakuten?.youon != null) {
+                  setShowHandakutenYouon(!showHandakutenYouon);
+                }
+              }}
+              style={handakuSpring}
+              className={
+                showHandakutenYouon && gojuon.handakuten?.youon != null
+                  ? "z-1 group relative col-span-1 row-span-1 m-1 !-mb-[0.375rem] flex cursor-pointer flex-col items-center justify-center rounded-t-lg border-2 border-b-0 bg-space-cadet p-4 text-isabelline"
+                  : "group relative col-span-1 row-span-1 m-1 flex flex-col items-center justify-center rounded-lg border-2 p-4 text-isabelline" +
+                    (gojuon.handakuten?.youon != null ? " cursor-pointer" : "")
+              }
+            >
               <p className="">{gojuon.handakuten?.kana.kana}</p>
-              <p className="h-1 pt-1 opacity-0 duration-200 group-hover:h-full group-hover:opacity-100">{gojuon.handakuten?.kana.romaji}</p>
+              <p className="h-0 opacity-0 duration-200 group-hover:h-7 group-hover:opacity-100">{gojuon.handakuten?.kana.romaji}</p>
               {/* digraph (youon) indicator */}
               <div className="absolute bottom-1 right-1 flex space-x-1">
                 {gojuon.handakuten?.youon != null ? <div className="h-3 w-3 rounded-full bg-emerald-400"></div> : <div className="h-3 w-3 rounded-full "></div>}
@@ -528,6 +252,29 @@ function GojuonRow(props: { index: number; group: GojuonGroup }): JSX.Element {
         )}
         <animated.div style={handakuSpring} className="col-span-1"></animated.div>
       </>
+
+      {/* dakuten's youon row */}
+      {props.group.kana[1]?.handakuten?.youon && (
+        <>
+          <animated.div style={handakutenYouonSpring} className="col-span-1"></animated.div>
+          <animated.div style={handakutenYouonSpring} className="col-span-3 mx-1 grid w-auto grid-cols-3 gap-2 rounded-2xl border-2 p-4 text-isabelline">
+            <div className="group col-span-1 flex flex-col items-center justify-center">
+              <p>{props.group.kana[1].handakuten.youon[0].kana}</p>
+              <p className="h-0 opacity-0 duration-200 group-hover:h-7 group-hover:opacity-100">{props.group.kana[1].handakuten.youon[0].romaji}</p>
+            </div>
+            <div className="group col-span-1 flex flex-col items-center justify-center">
+              <p>{props.group.kana[1].handakuten.youon[1].kana}</p>
+              <p className="h-0 opacity-0 duration-200 group-hover:h-7 group-hover:opacity-100">{props.group.kana[1].handakuten.youon[1].romaji}</p>
+            </div>
+            <div className="group col-span-1 flex flex-col items-center justify-center">
+              <p>{props.group.kana[1].handakuten.youon[2].kana}</p>
+              <p className="h-0 opacity-0 duration-200 group-hover:h-7 group-hover:opacity-100">{props.group.kana[1].handakuten.youon[2].romaji}</p>
+            </div>
+          </animated.div>
+          <animated.div style={handakutenYouonSpring} className="col-span-1"></animated.div>
+          <animated.div style={handakutenYouonSpring} className="col-span-2"></animated.div>
+        </>
+      )}
     </>
   );
 }
@@ -576,7 +323,7 @@ const Home: NextPage = () => {
               <div className="col-span-1 row-span-1 m-1 flex items-center justify-center rounded-lg p-4 text-xl text-isabelline">e</div>
               <div className="col-span-1 row-span-1 m-1 flex items-center justify-center rounded-lg p-4 text-xl text-isabelline">o</div>
               <div className="col-span-1 row-span-1"></div>
-              {gojuon.map((group) => (
+              {hiragana.gojuon.map((group) => (
                 <>
                   <GojuonRow index={0} group={group} />
                 </>
