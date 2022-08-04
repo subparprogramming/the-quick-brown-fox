@@ -1,23 +1,11 @@
-export type Kana = {
-  kana: string;
-  romaji: string;
-};
+import { Kana, GojuonGroup } from "./kana";
 
-export type HanDakuten = {
-  kana: Kana;
-  youon: [Kana, Kana, Kana] | null;
-};
+export const titleEnglish = "Hiragana";
+export const titleJapanese = "平仮名 (ひらがな)";
 
-export type Gojuon = {
-  kana: Kana;
-  youon: [Kana, Kana, Kana] | null;
-  dakuten: HanDakuten | null;
-  handakuten: HanDakuten | null;
-};
-
-export type GojuonGroup = {
-  leadConsonant: string | null;
-  kana: [Gojuon | null, Gojuon | null, Gojuon | null, Gojuon | null, Gojuon | null];
+export const n: Kana = {
+  kana: "ん",
+  romaji: "n",
 };
 
 export const gojuon: GojuonGroup[] = [
