@@ -4,7 +4,7 @@ function Footer() {
   return (
     <div className="mt-16 flex w-3/4 items-center justify-center space-x-3 border-t-2 py-10">
       {/* twitter link */}
-      <a href="https://twitter.com/subpar_program" target="_blank">
+      <a href="https://twitter.com/subpar_program" target="_blank" rel="noreferrer">
         <svg className="h-7 duration-200 hover:text-white" viewBox="0 0 24 24">
           <path
             fill="currentColor"
@@ -14,7 +14,7 @@ function Footer() {
       </a>
 
       {/* github link */}
-      <a href="https://github.com/udon-code-studios/the-quick-brown-fox" target="_blank">
+      <a href="https://github.com/udon-code-studios/the-quick-brown-fox" target="_blank" rel="noreferrer">
         <svg className="h-7 duration-200 hover:text-white" viewBox="0 0 24 24">
           <path
             fill="currentColor"
