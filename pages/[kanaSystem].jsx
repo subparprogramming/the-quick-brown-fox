@@ -1,4 +1,3 @@
-import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import { ArrowNarrowLeftIcon } from "@heroicons/react/solid";
@@ -27,6 +26,7 @@ export async function getStaticProps(context) {
 const Page = ({ kanaSystem }) => {
   const kana = (kanaSystem === "katakana") ? katakana : hiragana;
   const foxSrc = (kanaSystem === "katakana") ? "/assets/fox-animated-4.gif" : "/assets/fox-animated-3.gif";
+
   return (
     <>
       <Head>
@@ -62,11 +62,24 @@ const Page = ({ kanaSystem }) => {
             />
           </div>
 
-          {/* instructions */}
+
 
           {/* grid content */}
-          <div className="mx-auto flex w-full flex-col">
-            <div className="grid grid-flow-row grid-cols-7 pt-1 font-sans text-lg font-bold text-black">
+          <div className="mx-auto flex w-fit flex-col">
+            <div className="grid grid-flow-row grid-cols-7 font-sans text-lg font-bold text-black">
+
+              {/* instructions */}
+
+              <p className="p-2 col-span-7 text-isabelline font-normal text-sm text-center">
+                Click the <span className="rounded-lg bg-violet-500 p-1 font-bold">purple buttons</span> to toggle (han)dakutens (e.g. ぎ gi).
+              </p>
+              <p className="p-2 col-span-7 text-isabelline font-normal text-sm text-center">
+                Click the kana with green dots <div className="mx-1 inline-block h-3 w-3 rounded-full bg-emerald-400"></div> to see their yōon (e.g. ぎょ gyo).
+              </p>
+              <p className="p-2 pb-8 col-span-7 text-isabelline font-normal text-sm text-center">
+                <span className="font-bold">Hover</span> over a kana to see its romaji.
+              </p>
+
               <div className="col-span-1 row-span-1"></div>
               <div className="col-span-1 row-span-1 m-1 flex items-center justify-center rounded-lg p-4 text-xl text-isabelline">
                 a
@@ -89,10 +102,28 @@ const Page = ({ kanaSystem }) => {
                   <GojuonRow index={0} group={group} />
                 </>
               ))}
+
+              {/* line */}
+              <div className="col-span-7 border m-6"></div>
+
+              {/* n */}
+              <div className="col-span-7 flex justify-center items-center gap-4">
+                <div className="w-16 group relative m-1 p-4 flex flex-col items-center justify-center rounded-lg bg-isabelline font-sans text-lg font-bold text-black">
+                  <p className="">
+                    {kana.n.kana}
+                  </p>
+                  <p className="h-0 opacity-0 duration-200 group-hover:h-7 group-hover:opacity-100">
+                    {kana.n.romaji}
+                  </p>
+                </div>
+                <p className=" w-44 text-isabelline">
+                  {kana.n.kana} is the only kana that does not end in a vowel sound.
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* n */}
+
         </div>
 
         {/* footer */}
